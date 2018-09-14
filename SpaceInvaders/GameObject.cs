@@ -16,5 +16,9 @@ namespace SpaceInvaders
             Position = position;
             Graphics = graphics;
         }
+
+        public virtual void OnUpdate() {
+
+        }
     }
 }
