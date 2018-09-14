@@ -26,33 +26,53 @@ namespace SpaceInvaders
 
         private static void Initialize()
         {
-            gameObjects.Add(new GameObject(new Vector2(0, 0),
-                            new GraphicElement(ConsoleColor.Blue, 'x')));
+            // Add the player
+            gameObjects.Add(new GameObject(new Vector2(15, 10),
+                            new GraphicElement(ConsoleColor.Blue, 'A')));
+
+            // Add theinvaders
+            gameObjects.Add(new Invader(new Vector2(10, 0)));
+            gameObjects.Add(new Invader(new Vector2(12, 0)));
+            gameObjects.Add(new Invader(new Vector2(14, 0)));
+            gameObjects.Add(new Invader(new Vector2(16, 0)));
+            gameObjects.Add(new Invader(new Vector2(18, 0)));
+            gameObjects.Add(new Invader(new Vector2(11, 1)));
+            gameObjects.Add(new Invader(new Vector2(13, 1)));
+            gameObjects.Add(new Invader(new Vector2(15, 1)));
+            gameObjects.Add(new Invader(new Vector2(17, 1)));
+            gameObjects.Add(new Invader(new Vector2(10, 2)));
+            gameObjects.Add(new Invader(new Vector2(12, 2)));
+            gameObjects.Add(new Invader(new Vector2(14, 2)));
+            gameObjects.Add(new Invader(new Vector2(16, 2)));
+            gameObjects.Add(new Invader(new Vector2(18, 2)));
+
         }
 
         private static void Update()
         {
-            gameObjects[0].Position += new Vector2(1, 0);
+            gameObjects.ForEach((obj) => {
+                obj.OnUpdate();
+            });
         }
 
         private static void Draw()
         {
             Console.Clear();
-            foreach (var obj in gameObjects)
-            {
+
+            gameObjects.ForEach((obj) => {
                 GraphicElement graphics = obj.Graphics;
-                
+
                 // Skip drawing if object has no graphics
-                if (graphics == null) { continue; }
+                if (graphics == null) { return; }
 
                 // Skip drawing if object is positioned out of bounds
-                if (obj.Position.X < 0 || obj.Position.X >= Console.BufferWidth) { continue; }
-                if (obj.Position.Y < 0 || obj.Position.Y >= Console.BufferHeight) { continue; }
+                if (obj.Position.X < 0 || obj.Position.X >= Console.BufferWidth) { return; }
+                if (obj.Position.Y < 0 || obj.Position.Y >= Console.BufferHeight) { return; }
 
                 Console.SetCursorPosition(obj.Position.X, obj.Position.Y);
                 Console.ForegroundColor = graphics.Color;
                 Console.Write(graphics.Character);
-            }
+            });
         }
     }
 }
