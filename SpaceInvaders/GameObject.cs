@@ -16,7 +16,5 @@ namespace SpaceInvaders
             Position = position;
             Graphics = graphics;
         }
-
-
     }
 }
