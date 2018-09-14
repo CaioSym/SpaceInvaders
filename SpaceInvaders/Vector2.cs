@@ -22,9 +22,23 @@ namespace SpaceInvaders
             Y = y;
         }
 
+        // Sum operator
+
         public static Vector2 operator+(Vector2 lhs, Vector2 rhs)
         {
             return new Vector2(lhs.X + rhs.X, lhs.Y + rhs.Y);
+        }
+
+        // Scalar product operator
+
+        public static Vector2 operator *(int lhs, Vector2 rhs)
+        {
+            return new Vector2(lhs*rhs.X, lhs*rhs.Y);
+        }
+
+        public static Vector2 operator *(Vector2 lhs, int rhs)
+        {
+            return rhs * lhs;
         }
     }
 }
