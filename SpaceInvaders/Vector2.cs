@@ -10,7 +10,12 @@ namespace SpaceInvaders
     {
         public readonly int X;
         public readonly int Y;
-    
+
+        public static readonly Vector2 UP = new Vector2(0, -1);
+        public static readonly Vector2 Down = new Vector2(0, 1);
+        public static readonly Vector2 LEFT = new Vector2(-1, 0);
+        public static readonly Vector2 RIGHT = new Vector2(1, 0);
+
         public Vector2(int x, int y)
         {
             X = x;
