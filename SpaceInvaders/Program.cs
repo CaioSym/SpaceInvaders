@@ -18,6 +18,7 @@ namespace SpaceInvaders
             while (GameStateManager.Instance.GameState != GameState.GAME_OVER)
             {
                 keyPressed = Console.ReadKey(true);
+                GameObjectManager.Instance.ExecutePendingTransactions();
                 GameObjectManager.Instance.ComputeCollisions();
                 Update();
                 Draw();

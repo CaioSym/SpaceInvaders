@@ -18,20 +18,39 @@ namespace SpaceInvaders
                 if(instance == null) { instance = new GameObjectManager(); }
                 return instance;
             }
-        }   
+        }
 
         public readonly List<GameObject> GameObjects;
+        private readonly List<GameObject> toAdd;
+        private readonly List<GameObject> toRemove;
+
         public readonly Dictionary<GameObject, List<GameObject>> Collisions;
 
         public GameObjectManager()
         {
             GameObjects = new List<GameObject>();
+            toAdd = new List<GameObject>();
+            toRemove = new List<GameObject>();
+
             Collisions = new Dictionary<GameObject, List<GameObject>>();
         }
 
         public void Create(GameObject obj)
         {
-            GameObjects.Add(obj);
+            toAdd.Add(obj);
+        }
+
+        public void Destroy(GameObject obj)
+        {
+            toRemove.Add(obj);
+        }
+
+        public void ExecutePendingTransactions()
+        {
+            toRemove.ForEach(obj => GameObjects.Remove(obj));
+            toRemove.RemoveAll(_ => true);
+            GameObjects.AddRange(toAdd);
+            toAdd.RemoveAll(_ => true);
         }
 
         public void ComputeCollisions()
@@ -44,7 +63,6 @@ namespace SpaceInvaders
                         other.Collider, other.Position)));
                 Collisions[obj] = objCollisions;
             });
-
         }
     }
 }
