@@ -26,23 +26,23 @@ namespace SpaceInvaders
         private static void Initialize()
         {
             // Add the player
-            GameObjectManager.Instance.Create(new Player(new Vector2(15, 10)));
+            GameObjectManager.Instance.Create(new Player(new Vector2(22, 20)));
 
             // Add theinvaders
             GameObjectManager.Instance.Create(new Invader(new Vector2(10, 0)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(12, 0)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(14, 0)));
             GameObjectManager.Instance.Create(new Invader(new Vector2(16, 0)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(18, 0)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(11, 1)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(13, 1)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(15, 1)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(17, 1)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(10, 2)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(12, 2)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(14, 2)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(16, 2)));
-            GameObjectManager.Instance.Create(new Invader(new Vector2(18, 2)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(22, 0)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(28, 0)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(34, 0)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(13, 3)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(19, 3)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(25, 3)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(31, 3)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(10, 6)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(16, 6)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(22, 6)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(28, 6)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(34, 6)));
 
         }
 

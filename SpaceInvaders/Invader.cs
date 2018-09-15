@@ -8,6 +8,20 @@ namespace SpaceInvaders
 {
     class Invader : GameObject
     {
+
+        private static readonly GraphicElement ALIEN_GRAPHICS_1 = new GraphicElement(ConsoleColor.Green,
+            new char[,] {
+                { '\\' , '\'' },
+                { 'M'  , 'v'  },
+                { '/'  , '\'' }
+            });
+        private static readonly GraphicElement ALIEN_GRAPHICS_2 = new GraphicElement(ConsoleColor.Green,
+            new char[,] {
+                { '_' , '\'' },
+                { 'M' , 'w' },
+                { '_' , '\'' }
+            });
+
         private const int MOVE_COUNT = 10;
 
         private int moveCounter = MOVE_COUNT;
@@ -15,8 +29,8 @@ namespace SpaceInvaders
         private int speed = 1;
 
         private Animation animation = new Animation(new [] {
-            new GraphicElement(ConsoleColor.Green, 'V'),
-            new GraphicElement(ConsoleColor.Green, 'W')
+            ALIEN_GRAPHICS_1,
+            ALIEN_GRAPHICS_2
         });
 
         public Invader(Vector2 position) : base(position, null)
