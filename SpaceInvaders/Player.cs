@@ -38,6 +38,18 @@ namespace SpaceInvaders
             }
         }
 
+        public override void OnUpdate()
+        {
+            int invadersCollidedWithCount = GameObjectManager.Instance.Collisions[this]
+                .Where(obj => obj is Invader)
+                .Count();
+
+            if (invadersCollidedWithCount > 0)
+            {
+                GameStateManager.Instance.GameState = GameState.GAME_OVER;
+            }
+        }
+
         private void Move(Vector2 direction)
         {
             Position += direction;
