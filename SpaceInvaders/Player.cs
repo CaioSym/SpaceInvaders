@@ -37,7 +37,7 @@ namespace SpaceInvaders
 
         private void Fire()
         {
-            
+            GameObjectManager.Instance.Create(new Bullet(Position + Vector2.UP, Vector2.UP, 1));
         }
     }
 }

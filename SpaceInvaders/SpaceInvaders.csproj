@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="Bullet.cs" />
     <Compile Include="GameObjectManager.cs" />
     <Compile Include="Invader.cs" />
     <Compile Include="GameObject.cs" />
