@@ -70,9 +70,18 @@ namespace SpaceInvaders
                 if (obj.Position.X < 0 || obj.Position.X >= Console.BufferWidth) { return; }
                 if (obj.Position.Y < 0 || obj.Position.Y >= Console.BufferHeight) { return; }
 
-                Console.SetCursorPosition(obj.Position.X, obj.Position.Y);
                 Console.ForegroundColor = graphics.Color;
-                Console.Write(graphics.Character);
+                // Draw each char in the GraphicObject´s char matrix
+                for (int ii = 0, ww = graphics.Characters.GetLength(0); ii < ww; ii++)
+                {
+                    for (int jj = 0, hh = graphics.Characters.GetLength(1); jj < hh; jj++)
+                    {
+                        Vector2 pos = obj.Position + new Vector2(ii, jj);
+                        Console.SetCursorPosition(pos.X, pos.Y);
+                        Console.Write(graphics.Characters[ii, jj]);
+                    }
+
+                }
             });
         }
     }

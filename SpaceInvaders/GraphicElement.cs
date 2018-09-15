@@ -9,12 +9,17 @@ namespace SpaceInvaders
     class GraphicElement
     {
         public readonly ConsoleColor Color;
-        public readonly char Character;
+        public readonly char[,] Characters;
 
-        public GraphicElement(ConsoleColor color, char character)
+        // Single char objects get a simple 1 element matrix
+        public GraphicElement(ConsoleColor color, char character) : this(color, new[,] { { character } })
+        {
+        }
+
+        public GraphicElement(ConsoleColor color, char[,] characters)
         {
             Color = color;
-            Character = character;
-        }
+            Characters = characters;
+        }    
     }
 }
