@@ -18,6 +18,7 @@ namespace SpaceInvaders
             while (true)
             {
                 keyPressed = Console.ReadKey(true);
+                GameObjectManager.Instance.ComputeCollisions();
                 Update();
                 Draw();
             }
@@ -49,11 +50,13 @@ namespace SpaceInvaders
         private static void Update()
         {
             // Hack to feed key presses into player
-            ((Player)GameObjectManager.Instance.GameObjects[0]).HandleKeyPressed(keyPressed.Key);
+            Player player = ((Player)GameObjectManager.Instance.GameObjects[0]);
+            player.HandleKeyPressed(keyPressed.Key);
 
             GameObjectManager.Instance.GameObjects.ForEach((obj) => {
                 obj.OnUpdate();
             });
+
         }
 
         private static void Draw()
