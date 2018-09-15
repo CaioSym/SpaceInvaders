@@ -8,7 +8,14 @@ namespace SpaceInvaders
 {
     class Player : GameObject
     {
-        public Player(Vector2 position) : base(position, new GraphicElement(ConsoleColor.Blue, 'A'))
+        private static readonly GraphicElement PLAYER_GRAPHICS = new GraphicElement(ConsoleColor.Blue,
+            new char[,] {
+                { '<' , '/'  },
+                { 'A' , 'W'  },
+                { '>' , '\\' }
+            });
+
+        public Player(Vector2 position) : base(position, PLAYER_GRAPHICS)
         {
         }
 
@@ -37,7 +44,7 @@ namespace SpaceInvaders
 
         private void Fire()
         {
-            GameObjectManager.Instance.Create(new Bullet(Position + Vector2.UP, Vector2.UP, 1));
+            GameObjectManager.Instance.Create(new Bullet(Position + Vector2.RIGHT, Vector2.UP, 1));
         }
     }
 }
