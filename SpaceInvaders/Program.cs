@@ -27,8 +27,7 @@ namespace SpaceInvaders
         private static void Initialize()
         {
             // Add the player
-            gameObjects.Add(new GameObject(new Vector2(15, 10),
-                            new GraphicElement(ConsoleColor.Blue, 'A')));
+            gameObjects.Add(new Player(new Vector2(15, 10)));
 
             // Add theinvaders
             gameObjects.Add(new Invader(new Vector2(10, 0)));
@@ -50,6 +49,9 @@ namespace SpaceInvaders
 
         private static void Update()
         {
+            // Hack to feed key presses into player
+            ((Player)gameObjects[0]).HandleKeyPressed(keyPressed.Key);
+
             gameObjects.ForEach((obj) => {
                 obj.OnUpdate();
             });
