@@ -46,6 +46,8 @@
     <Compile Include="Animation.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="GameObjectManager.cs" />
+    <Compile Include="GameState.cs" />
+    <Compile Include="GameStateManager.cs" />
     <Compile Include="Invader.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GraphicElement.cs" />
