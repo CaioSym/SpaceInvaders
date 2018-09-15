@@ -15,13 +15,18 @@ namespace SpaceInvaders
         {
             Initialize();
 
-            while (true)
+            while (GameStateManager.Instance.GameState != GameState.GAME_OVER)
             {
                 keyPressed = Console.ReadKey(true);
                 GameObjectManager.Instance.ComputeCollisions();
                 Update();
                 Draw();
             }
+
+            Console.SetCursorPosition(0, 0);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("Game Over Man! Game Over!");
+            Console.ReadKey(true);
         }
 
         private static void Initialize()
