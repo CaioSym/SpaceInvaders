@@ -21,6 +21,14 @@ namespace SpaceInvaders
 
         public override void OnUpdate()
         {
+            Invader collidedInvader = (Invader)GameObjectManager.Instance.Collisions[this]
+                .Where(obj => obj is Invader)
+                .FirstOrDefault();
+            if (collidedInvader != null)
+            {
+                GameObjectManager.Instance.Destroy(collidedInvader);
+                GameObjectManager.Instance.Destroy(this);
+            }
             Position += speed * direction;
         }
     }
