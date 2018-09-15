@@ -15,7 +15,8 @@ namespace SpaceInvaders
                 { '>' , '\\' }
             });
 
-        public Player(Vector2 position) : base(position, PLAYER_GRAPHICS)
+        public Player(Vector2 position)
+            : base(position, PLAYER_GRAPHICS, new RectangleCollider(Vector2.ZERO, new Vector2(2, 1)))
         {
         }
 

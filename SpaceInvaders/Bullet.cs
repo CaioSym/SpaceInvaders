@@ -13,7 +13,7 @@ namespace SpaceInvaders
         private int speed;
 
         public Bullet(Vector2 position, Vector2 direction, int speed) 
-            : base(position, new GraphicElement(ConsoleColor.Red, 'o'))
+            : base(position, new GraphicElement(ConsoleColor.Red, 'o'), new RectangleCollider(Vector2.ZERO, Vector2.ZERO))
         {
             this.direction = direction;
             this.speed = speed;

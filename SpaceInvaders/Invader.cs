@@ -33,7 +33,8 @@ namespace SpaceInvaders
             ALIEN_GRAPHICS_2
         });
 
-        public Invader(Vector2 position) : base(position, null)
+        public Invader(Vector2 position)
+            : base(position, null, new RectangleCollider(Vector2.ZERO, new Vector2(2, 1)))
         {
             Graphics = animation.NextGraphicElement();
         }
