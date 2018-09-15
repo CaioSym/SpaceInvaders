@@ -9,7 +9,6 @@ namespace SpaceInvaders
 {
     class Program
     {
-        private static List<GameObject> gameObjects = new List<GameObject>();
         private static ConsoleKeyInfo keyPressed;
 
         static void Main(string[] args)
@@ -27,32 +26,32 @@ namespace SpaceInvaders
         private static void Initialize()
         {
             // Add the player
-            gameObjects.Add(new Player(new Vector2(15, 10)));
+            GameObjectManager.Instance.Create(new Player(new Vector2(15, 10)));
 
             // Add theinvaders
-            gameObjects.Add(new Invader(new Vector2(10, 0)));
-            gameObjects.Add(new Invader(new Vector2(12, 0)));
-            gameObjects.Add(new Invader(new Vector2(14, 0)));
-            gameObjects.Add(new Invader(new Vector2(16, 0)));
-            gameObjects.Add(new Invader(new Vector2(18, 0)));
-            gameObjects.Add(new Invader(new Vector2(11, 1)));
-            gameObjects.Add(new Invader(new Vector2(13, 1)));
-            gameObjects.Add(new Invader(new Vector2(15, 1)));
-            gameObjects.Add(new Invader(new Vector2(17, 1)));
-            gameObjects.Add(new Invader(new Vector2(10, 2)));
-            gameObjects.Add(new Invader(new Vector2(12, 2)));
-            gameObjects.Add(new Invader(new Vector2(14, 2)));
-            gameObjects.Add(new Invader(new Vector2(16, 2)));
-            gameObjects.Add(new Invader(new Vector2(18, 2)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(10, 0)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(12, 0)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(14, 0)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(16, 0)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(18, 0)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(11, 1)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(13, 1)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(15, 1)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(17, 1)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(10, 2)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(12, 2)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(14, 2)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(16, 2)));
+            GameObjectManager.Instance.Create(new Invader(new Vector2(18, 2)));
 
         }
 
         private static void Update()
         {
             // Hack to feed key presses into player
-            ((Player)gameObjects[0]).HandleKeyPressed(keyPressed.Key);
+            ((Player)GameObjectManager.Instance.GameObjects[0]).HandleKeyPressed(keyPressed.Key);
 
-            gameObjects.ForEach((obj) => {
+            GameObjectManager.Instance.GameObjects.ForEach((obj) => {
                 obj.OnUpdate();
             });
         }
@@ -61,7 +60,7 @@ namespace SpaceInvaders
         {
             Console.Clear();
 
-            gameObjects.ForEach((obj) => {
+            GameObjectManager.Instance.GameObjects.ForEach((obj) => {
                 GraphicElement graphics = obj.Graphics;
 
                 // Skip drawing if object has no graphics
