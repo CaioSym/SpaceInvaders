@@ -10,11 +10,13 @@ namespace SpaceInvaders
     {
         public Vector2 Position;
         public GraphicElement Graphics;
+        public RectangleCollider Collider;
 
-        public GameObject(Vector2 position, GraphicElement graphics)
+        public GameObject(Vector2 position, GraphicElement graphics, RectangleCollider collider)
         {
             Position = position;
             Graphics = graphics;
+            Collider = collider;
         }
 
         public virtual void OnUpdate() {
